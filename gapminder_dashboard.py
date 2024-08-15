@@ -5,6 +5,23 @@ import pandas as pd
 # Load Data from px
 df = px.data.gapminder()
 
+# Home Screen
+def Home():
+    st.title("World Data Dashboard")
+    st.header("By: Abdelrahman Feteha")
+    st.write("""
+    Welcome to the World Data Dashboard! This dashboard provides insights into global life expectancy, GDP per capita, and population trends using the Gapminder dataset.
+    
+    ### Features:
+    - **Data Overview:** Explore the dataset's structure, unique values, and descriptive statistics.
+    - **Time Series Analysis:** Analyze how metrics such as life expectancy, GDP per capita, and population have changed over time.
+    - **Comparative Analysis:** Compare different metrics across countries and continents.
+    - **Heatmap Analysis:** Visualize correlations between key metrics.
+    - **Box Plot Analysis:** Examine the distribution of metrics across continents.
+    
+    Use the sidebar to navigate through different sections of the dashboard.
+    """)
+
 # Data Overview
 def Data_Description():
     st.title("Data Overview")
@@ -99,8 +116,7 @@ def Comparative_Analysis():
     )
     st.plotly_chart(fig)
 
-
-    #heatmap
+# Heatmap Charts
 def Heatmap_Charts():
     st.title("Heatmap Charts")
     
@@ -111,6 +127,7 @@ def Heatmap_Charts():
     fig = px.imshow(corr_matrix, text_auto=True, title='Correlation Heatmap of Life Expectancy, GDP per Capita, and Population')
     st.plotly_chart(fig)
 
+# Boxplot Charts
 def Boxplot_Charts():
     st.title("Boxplot Charts")
     
@@ -152,11 +169,12 @@ def Boxplot_Charts():
 
 # Navigation System
 Func_to_names = {
+    "Home": Home,
     "Data_Overview": Data_Description,
     "Time_Series_Analysis": Time_Series_Analysis,
     "Comparative_Analysis": Comparative_Analysis,
     "Heatmap Analysis": Heatmap_Charts,
-    "Box_Plot Analysis" : Boxplot_Charts
+    "Boxplot Analysis": Boxplot_Charts
 }
 
 User_Choice = st.sidebar.selectbox("Select Your Page", Func_to_names.keys())
