@@ -25,7 +25,8 @@ def Home():
 # Data Overview
 def Data_Description():
     st.title("Data Overview")
-    st.header("By: Abdelrahman Feteha")
+    st.write("The Gapminder dataset offers a comprehensive overview of global development from 1952 to 2007, across multiple countries and continents. It includes key metrics such as life expectancy, GDP per capita, and population, which allow for in-depth analysis of trends over time.")
+    
     
     c1, c2 = st.columns([2, 1])
     with c1:
